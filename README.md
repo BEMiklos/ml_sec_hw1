@@ -8,7 +8,7 @@ The mean accuracy observed on the test set is 99.49%.
 **1.2. What is the model TPR, TNR, FPR, FNR, and AUC on the test data? What can be concluded from these about the model performance?**
 
 
-|||
+| Metric  | Score  |
 |---------|--------|
 | TPR     | 0.9949 |
 | TNR     | 0.9949 |
@@ -20,19 +20,23 @@ Based on the results, the predictions are well balanced, highly accurate, and th
 
 **2.1. Results with random adversary suffix for baseline attack**
 
-Using different length of suffixes the accuracy of the attack differs:
- - 5% of the original length: 0% of the malware samples are predicted benign
- - 10%: 0% attack accuracy
- - 15%: 2% attack accuracy
- - 20%: 0% attack accuracy
+Using different length of suffixes the accuracy of the attack (% of the malware samples are predicted benign) differs:
+| Suffix% | Attack. acc. |
+|---------|--------------|
+| 5%      | 0%           |
+| 10%     | 0%           |
+| 15%     | 2%           |
+| 20%     | 0%           |
 
 The results above are expected as the original model was not overfitted, so it should be somewhat robust to random noise.
 
 **2.2. Results with PGD attack on suffixes**
- - 5%: 22% attack accuracy
- - 10%: 56% attack accuracy
- - 15%: 74% attack accuracy
- - 20%: 76% attack accuracy
+| Suffix% | Attack. acc. |
+|---------|--------------|
+| 5%      | 22%          |
+| 10%     | 56%          |
+| 15%     | 74%          |
+| 20%     | 76%          |
 
 Based on our results, increasing the ratio of the adversarial bytes relative to the original yields increasing attack accuracy, when attacking with PGD: $\epsilon=0.01$, for 100 epochs on each sample.
 
